@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enzzo Rodriguez | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="blob"></div>
+
+    <nav>
+        <div class="logo">MY<span> PORTFOLIO</span></div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about" class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <p>HI! I'M</p>
+                <h1>Rhenzzo<br>Rodriguez.</h1>
+                <p>I build interactive web experiences that blend logic with art. Specializing in HTML, CSS, JavaScript, and custom digital solutions.</p>
+                <div>
+                    <a href="#contact" class="btn">Hire Me Now</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="my pfp.jpg" alt="Rhenzzo Rodriguez">
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+    <div class="projects-layout">
+        
+        <div class="skills-column">
+            <h2>Qualifications & Edge</h2>
+            
+            <div class="qualification-item">
+                <div class="tag">Education</div>
+                <p><strong>Tarlac Agricultural University</strong></p>
+                <p style="font-size: 0.9rem; color: #888;">Pursuing Degree in Information Technology</p>
+            </div>
+
+            <div class="qualification-item">
+                <div class="tag">My Edge</div>
+                <p>I don't just write code; I sync digital experiences with emotion. My focus is on <strong>high-performance animations</strong> and <strong>seamless audio-visual integration</strong>.</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-tag">HTML5</div>
+                <div class="skill-tag">CSS3</div>
+                <div class="skill-tag">JavaScript (ES6+)</div>
+                <div class="skill-tag">UI/UX Motion</div>
+                <div class="skill-tag">Responsive Design</div>
+                <div class="skill-tag">Git/GitHub</div>
+            </div>
+        </div>
+
+        <div class="work-column">
+            <h2>Featured Work</h2>
+            <div class="card">
+                <div class="project-tag">JavaScript + Audio</div>
+                <h3>Lyric Sync Player</h3>
+                <p>An interactive music player that syncs lyrics with audio using a custom typewriter effect and real-time DOM manipulation.</p>
+                <a href="lyrics.html" class="social-link" style="margin-top: 15px; display: inline-block;">Launch Project</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+    <section id="services">
+    <h2>What I Do</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-image">
+                <img src="webdevelopmet.png" alt="Web Development Visualization">
+            </div>
+            <h3>Web Development</h3>
+            <p>Building responsive, fast-loading websites with modern technologies and clean code.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <img src="uiux.png" alt="UI/UX Design Visualization">
+            </div>
+            <h3>UI/UX Animation</h3>
+            <p>Creating interactive elements and animations (like typing lyrics!) to keep users engaged.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <img src="backend.pnd.png" alt="Backend Logic Visualization">
+            </div>
+            <h3>Backend Logic</h3>
+            <p>Handling data, APIs, and the "brains" behind the visual beauty of a site.</p>
+        </div>
+    </div>
+</section>
+
+    <section id="contact">
+        <div class="contact-box">
+            <h2>Let's Work Together</h2>
+            <p>Click below to send me a direct message on any of my socials.</p>
+            
+            <div class="contact-links">
+                <a href="mailto:rprodriguez2020@tau.edu.ph" class="social-link">Email Me</a>
+                <a href="https://www.facebook.com/rhenzzo.rodriguez.9" class="social-link">Facebook</a>
+                <a href="https://github.com/rprodriguez2020-maker" target="_blank" class="social-link">GitHub</a>
+                <a href="https://www.instagram.com/enzz_ow/?hl=en" target="_blank" class="social-link">Instagram</a>
+            </div>
+        </div>
+    </section>
+
+
+
+   <section id="video-showcase" style="min-height: auto; padding-top: 50px;">
+    <div class="video-container">
+        <video id="featureVideo" autoplay muted loop playsinline preload="auto" class="frameless-video">
+    <source src="Andy Grammer - Fresh Eyes (Official Lyric Video) - Andy Grammer (720p, h264, youtube).mp4" type="video/mp4">
+</video>
+        <div class="video-overlay"></div>
+    </div>
+</section>
+
+<footer id="main-footer" class="main-footer">
+    &copy; Enzzo Rodriguez Portfolio. Built with ❤️ and Code.
+</footer>
+
+<script>
+    const video = document.getElementById('featureVideo');
+    const footer = document.getElementById('main-footer');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Wait 300ms after the footer appears to avoid scroll-lag
+                setTimeout(() => {
+                    video.muted = false;
+                    // Play explicitly in case the browser paused it
+                    video.play().catch(error => console.log("Auto-play was prevented"));
+                }, 300);
+
+                // Stop watching to save CPU memory
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    observer.observe(footer);
+</script>
+
+</body>
+</html>
